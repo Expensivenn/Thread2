@@ -1,7 +1,7 @@
 package threads;
 
 
-class SumThread extends Thread {
+class SumThread implements Runnable {
     private long start;
     private long end;
     private long sum;

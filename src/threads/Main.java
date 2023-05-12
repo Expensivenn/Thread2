@@ -16,11 +16,13 @@ public class Main {
         startTime = System.nanoTime();
         SumThread t1 = new SumThread(0, num / 2);
         SumThread t2 = new SumThread(num / 2, num);
-        t1.start();
-        t2.start();
+        Thread tr1 = new Thread(t1);
+        Thread tr2 = new Thread(t2);
+        tr1.start();
+        tr2.start();
         try {
-            t1.join();
-            t2.join();
+            tr1.join();
+            tr2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -36,4 +38,5 @@ public class Main {
         }
         return sum;
     }
+
 }
